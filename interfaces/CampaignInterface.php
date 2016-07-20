@@ -14,7 +14,7 @@ namespace app\interfaces;
 interface CampaignInterface
 {
     /**
-     * Performs create action.
+     * Performs campaign creation.
      *
      * @param array $params Params for new advertising campaign
      * @return bool

@@ -14,12 +14,12 @@ namespace app\interfaces;
 interface AdvertiserInterface
 {
     /**
-     * Sets array of advertiser params for authentication.
+     * Sets array of advertiser authentication params.
      */
     public function setCredentials(array $credentials);
 
     /**
-     * Returns array of advertiser params for authentication.
+     * Returns array of advertiser authentication params.
      *
      * @return array
      */

@@ -14,7 +14,7 @@ namespace app\interfaces;
 interface NetworkInterface
 {
     /**
-     * Performs log in action.
+     * Performs advertiser's authorization.
      *
      * @param AdvertiserInterface $advertiser
      * @return bool
