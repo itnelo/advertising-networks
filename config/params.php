@@ -1,5 +1,15 @@
 <?php
 
 return [
-    'adminEmail' => 'admin@example.com',
+    'networks' => [
+        [
+            'class' => 'app\components\teasernet\Network',
+            'campaign' => [
+                'class' => 'app\components\teasernet\Campaign'
+            ],
+        ],
+//        [
+//            'class' => 'app\components\AnotherNetwork'
+//        ]
+    ]
 ];
