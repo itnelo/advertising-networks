@@ -12,7 +12,7 @@ use yii\helpers\VarDumper;
 use app\components\NetworkAbstract;
 
 /**
- * Class TeasernetNetwork
+ * Class Network
  * @package app\components\teasernet
  */
 class Network extends NetworkAbstract
