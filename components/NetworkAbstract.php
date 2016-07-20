@@ -23,7 +23,7 @@ abstract class NetworkAbstract extends Component implements NetworkInterface, Lo
     /**
      * @inheritdoc
      */
-    public function authorize(AdvertiserInterface $advertiser)
+    final public function authorize(AdvertiserInterface $advertiser)
     {
         $this->login($advertiser->getCredentials());
     }
@@ -46,6 +46,16 @@ abstract class NetworkAbstract extends Component implements NetworkInterface, Lo
      */
     public function getCampaign()
     {
+        if (empty($this->campaign)) {
+            $childClass = get_called_class();
+            $childNamespace = substr($childClass, 0, strrpos($childClass, "\\"));
+            $campaignClass = $childNamespace . "\\" . 'Campaign';
+
+            if (class_exists($campaignClass)) {
+                $this->setCampaign($campaignClass);
+            }
+        }
+
         return Yii::createObject($this->campaign);
     }
 }
