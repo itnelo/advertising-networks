@@ -9,7 +9,6 @@ namespace app\components;
 
 use Yii;
 use yii\base\Component;
-use yii\di\Instance;
 use app\interfaces\AdvertServiceInterface;
 use app\interfaces\AdvertiserInterface;
 use app\interfaces\NetworkInterface;

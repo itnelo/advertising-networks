@@ -19,7 +19,6 @@ interface AdvertServiceInterface
      * @param AdvertiserInterface $advertiser
      * @param array $networks Array of networks configurations.
      * @param array $data Advertising campaign data
-     * @return mixed
      */
     public function publish(AdvertiserInterface $advertiser, array $networks, array $data);
 
