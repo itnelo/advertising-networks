@@ -44,6 +44,14 @@ class AdvertService extends Component implements AdvertServiceInterface
     /**
      * @inheritdoc
      */
+    public function hasErrors()
+    {
+        return !empty($this->errors);
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function getErrors()
     {
         return $this->errors;

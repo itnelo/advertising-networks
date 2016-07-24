@@ -22,7 +22,16 @@ class AdvertController extends Controller
      */
     public function actionCreate($name, $type, $url)
     {
-        $this->getAdvertService()->publish($this->getAdvertiser(), $this->getNetworks(), func_get_args());
+        $advertService = $this->getAdvertService();
+        $advertService->publish($this->getAdvertiser(), $this->getNetworks(), func_get_args());
+
+        if ($advertService->hasErrors()) {
+            $errors = $advertService->getErrors();
+
+            foreach ($errors as $message) {
+                $this->stderr($message . PHP_EOL);
+            }
+        }
     }
 
     /**

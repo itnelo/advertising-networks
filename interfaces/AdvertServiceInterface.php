@@ -23,6 +23,13 @@ interface AdvertServiceInterface
     public function publish(AdvertiserInterface $advertiser, array $networks, array $data);
 
     /**
+     * Returns true if some errors has been raised during publishing.
+     *
+     * @return bool
+     */
+    public function hasErrors();
+
+    /**
      * Returns array of error messages raised during publishing.
      *
      * @return array
