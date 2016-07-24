@@ -9,13 +9,13 @@ namespace app\components\teasernet;
 
 use Yii;
 use yii\helpers\VarDumper;
-use app\components\NetworkAbstract;
+use app\components\AbstractNetwork;
 
 /**
  * Class Network
  * @package app\components\teasernet
  */
-class Network extends NetworkAbstract
+class Network extends AbstractNetwork
 {
     /**
      * @inheritdoc

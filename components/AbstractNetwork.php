@@ -13,7 +13,7 @@ use app\interfaces\AdvertiserInterface;
 use app\interfaces\LoginInterface;
 use app\interfaces\NetworkInterface;
 
-abstract class NetworkAbstract extends Component implements NetworkInterface, LoginInterface
+abstract class AbstractNetwork extends Component implements NetworkInterface, LoginInterface
 {
     /**
      * @var array|callable|string
