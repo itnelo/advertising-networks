@@ -21,6 +21,9 @@ $config = [
                 ],
             ],
         ],
+        'advertService' => [
+            'class' => 'app\components\AdvertService',
+        ],
         'advertiser' => [
             'class' => 'app\components\immo\Advertiser',
             'credentials' => ['test', '123456']

@@ -4,9 +4,8 @@ namespace app\commands;
 
 use Yii;
 use yii\console\Controller;
+use app\interfaces\AdvertServiceInterface;
 use app\interfaces\AdvertiserInterface;
-use app\interfaces\NetworkInterface;
-use app\interfaces\CampaignInterface;
 
 /**
  * Class AdvertController
@@ -23,32 +22,15 @@ class AdvertController extends Controller
      */
     public function actionCreate($name, $type, $url)
     {
-        $networks = $this->getNetworks();
-        $advertiser = $this->getAdvertiser();
-
-        foreach ($networks as $networkConfig) {
-            /** @var NetworkInterface $network */
-            $network = Yii::createObject($networkConfig);
-
-            try {
-                $network->authorize($advertiser);
-
-                /** @var CampaignInterface $campaign */
-                $campaign = $network->campaign;
-                $campaign->create(func_get_args());
-            } catch (\Exception $e) {
-                // TODO
-                $this->stderr($e->getMessage() . PHP_EOL);
-            }
-        }
+        $this->getAdvertService()->publish($this->getAdvertiser(), $this->getNetworks(), func_get_args());
     }
 
     /**
-     * @return array
+     * @return AdvertServiceInterface
      */
-    protected function getNetworks()
+    protected function getAdvertService()
     {
-        return Yii::$app->params['networks'];
+        return Yii::$app->advertService;
     }
 
     /**
@@ -57,5 +39,13 @@ class AdvertController extends Controller
     protected function getAdvertiser()
     {
         return Yii::$app->advertiser;
+    }
+
+    /**
+     * @return array
+     */
+    protected function getNetworks()
+    {
+        return Yii::$app->params['networks'];
     }
 }
